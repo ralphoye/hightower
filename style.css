@@ -284,61 +284,119 @@ a {
     color: #777;
 }
 
-/* Testimonials Section */
 .testimonials-section {
-    background-color: #ecf0f1; 
-}
+            background-color: #ecf0f1;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .testimonials-section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+        }
+        
+        .testimonials-section p.subheading {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
 
-.testimonial-carousel {
-    display: flex;
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
-    -webkit-overflow-scrolling: touch; 
-    gap: 1.5rem;
-    padding-bottom: 1rem; 
-}
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 1.5rem;
+            padding: 1rem 0; /* Adjusted padding to ensure cards are visible at edges */
+            justify-content: flex-start;
+            /* Hide scrollbar for a cleaner look, but still allow scrolling */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
 
-.testimonial-card {
-    flex: 0 0 90%; 
-    max-width: 400px;
-    scroll-snap-align: start;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
-    padding: 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        /* Custom Scrollbar for Webkit browsers */
+        .testimonial-carousel::-webkit-scrollbar {
+            height: 0px; /* Hide scrollbar for Chrome, Safari, Opera */
+            background: transparent; /* Make scrollbar track transparent */
+        }
 
-.testimonial-card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 3px solid #ff6b6b;
-}
+        .testimonial-carousel::-webkit-scrollbar-thumb {
+            background: transparent; /* Make scrollbar thumb transparent */
+        }
 
-.testimonial-card p {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
+        .testimonial-card {
+            flex-shrink: 0; 
+            width: 90%; 
+            min-width: 280px; 
+            max-width: 400px; 
 
-.testimonial-card h4 {
-    font-weight: 700;
-    color: #2c3e50;
-    font-size: 1.1rem;
-}
+            scroll-snap-align: start;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
-.testimonial-card span {
-    font-size: 0.9rem;
-    color: #777;
-}
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            border: 3px solid #ff6b6b;
+        }
 
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .testimonial-card h4 {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .testimonial-card span {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        #testimonial-info {
+            display: flex;
+            align-items: center; 
+        }
+
+        #testimonial-rating {
+            color: #007bff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+/* Media Query to handle desktop and tablet layouts */
+@media (min-width: 768px) {
+    .testimonial-carousel {
+        /* On larger screens, the carousel should not scroll */
+        overflow-x: hidden;
+        justify-content: center; /* Center the cards */
+        gap: 2rem; /* Adjusted gap for desktop */
+    }
+
+    .testimonial-card {
+        flex: 0 0 calc(33.333% - 2rem); /* Three cards per row */
+        max-width: none; /* Reset max-width to allow flex to control the size */
+    }
+}
 
 /* Banner Section */
  .banner-grid {
@@ -379,19 +437,20 @@ a {
 /* Showcase Section */
  .showcase-grid {
     display: flex;
-   
-    
-    
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem; */
-    
-    
 }
 
 .showcase-img {
     padding: 1rem;
     width: 350px
+}
+
+.showcase-btn {
+    background: url('/asset/header-bg.jpg') no-repeat center center/cover;
+    color: #1a202c;
+    padding: .8rem;
+    border-radius: 10px;
+    font-weight: 800;
+    width: 100%;
 }
 
 
@@ -405,23 +464,9 @@ a {
 .showcase-item p {
     font-size: .6rem;
     text-align: justify;
-}
-
-
-/* Call to Action Section */
-.cta-section {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://placehold.co/1920x400/3498db/ffffff?text=Travel+Background') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 6rem 1.5rem;
-}
-
-.cta-section h2 {
-    font-size: clamp(2.2rem, 5vw + 1rem, 3.8rem);
-    font-weight: 800;
     margin-bottom: 2rem;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 /* Footer Styling */
 .footer {
