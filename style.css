@@ -451,6 +451,8 @@ a {
     border-radius: 10px;
     font-weight: 800;
     width: 100%;
+    border: none; 
+    outline: none;
 }
 
 
