@@ -307,7 +307,7 @@ a {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scroll-behavior: smooth; /* smooth scroll */
+            scroll-behavior: smooth; 
             gap: 1.5rem;
             padding: 1rem 0;
             scrollbar-width: none; 
@@ -315,12 +315,12 @@ a {
 
         /* Custom Scrollbar for Webkit browsers */
         .testimonial-carousel::-webkit-scrollbar {
-            height: 0px; /* Hide scrollbar for Chrome, Safari, Opera */
-            background: transparent; /* Make scrollbar track transparent */
+            height: 0px; 
+            background: transparent; 
         }
 
         .testimonial-carousel::-webkit-scrollbar-thumb {
-            background: transparent; /* Make scrollbar thumb transparent */
+            background: transparent; 
         }
 
         .testimonial-card {
@@ -386,7 +386,7 @@ a {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        scroll-behavior: smooth; /* smooth scrolling */
+        scroll-behavior: smooth;
         gap: 1.5rem;
         padding: 1rem 0;
 }
@@ -962,14 +962,14 @@ a {
     }
 
     .testimonial-carousel {
-        justify-content: flex-start;   /* keep items aligned to the left */
-        overflow-x: auto;             /* allow scrolling */
+        justify-content: flex-start;  
+        overflow-x: auto;         
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
     }
 
     .testimonial-card {
-        flex: 0 0 320px;  /* fixed width cards */
+        flex: 0 0 320px;  
         max-width: 350px;
     }
 
