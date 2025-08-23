@@ -307,12 +307,10 @@ a {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
+            scroll-behavior: smooth; /* smooth scroll */
             gap: 1.5rem;
-            padding: 1rem 0; /* Adjusted padding to ensure cards are visible at edges */
-            justify-content: flex-start;
-            /* Hide scrollbar for a cleaner look, but still allow scrolling */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            padding: 1rem 0;
+            scrollbar-width: none; 
         }
 
         /* Custom Scrollbar for Webkit browsers */
@@ -385,16 +383,18 @@ a {
 /* Media Query to handle desktop and tablet layouts */
 @media (min-width: 768px) {
     .testimonial-carousel {
-        /* On larger screens, the carousel should not scroll */
-        overflow-x: hidden;
-        justify-content: center; /* Center the cards */
-        gap: 2rem; /* Adjusted gap for desktop */
-    }
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth; /* smooth scrolling */
+        gap: 1.5rem;
+        padding: 1rem 0;
+}
 
     .testimonial-card {
-        flex: 0 0 calc(33.333% - 2rem); /* Three cards per row */
-        max-width: none; /* Reset max-width to allow flex to control the size */
-    }
+        flex-shrink: 0;
+        scroll-snap-align: start;
+}
 }
 
 /* Banner Section */
@@ -962,12 +962,15 @@ a {
     }
 
     .testimonial-carousel {
-        justify-content: center;
-        overflow-x: hidden;
+        justify-content: flex-start;   /* keep items aligned to the left */
+        overflow-x: auto;             /* allow scrolling */
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 
     .testimonial-card {
-        flex: 0 0 calc(33.333% - 1rem);
+        flex: 0 0 320px;  /* fixed width cards */
+        max-width: 350px;
     }
 
     .cards-container {
