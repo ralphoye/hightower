@@ -307,7 +307,6 @@ a {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
             gap: 1.5rem;
             padding: 1rem 0; /* Adjusted padding to ensure cards are visible at edges */
             justify-content: flex-start;
