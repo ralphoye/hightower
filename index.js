@@ -1,13 +1,23 @@
-<script>
-// JavaScript for hamburger menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-	const hamburgerMenu = document.getElementById('hamburger-menu');
-	const navLinks = document.getElementById('nav-links');
+// Hamburger Menu
+const hamburger = document.getElementById("hamburger-menu");
+const navLinks = document.getElementById("nav-links");
 
-	if (hamburgerMenu && navLinks) {
-		hamburgerMenu.addEventListener('click', function() {
-			navLinks.classList.toggle('active');
-		});
-	}
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
 });
-</script>
+
+// Scroll Reveal
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target); // animate only once
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach(reveal => {
+  observer.observe(reveal);
+});
